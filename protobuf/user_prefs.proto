@@ -1,0 +1,30 @@
+syntax = "proto2";
+package data;
+
+import "types.proto";
+
+message PbLocalizationPreferences {
+	optional types.PbLanguageId language = 1 ;
+	optional types.PbUnitSystem unit_system = 2 ;
+	optional types.PbTimeFormat time_format = 3 ;
+	optional types.PbTimeFormatSeparator time_format_separator = 4 ;
+	optional types.PbDateFormat date_format = 5 ;
+	optional types.PbDateFormatSeparator date_format_separator = 6 ;
+	optional types.PbStartDayOfWeek firstday_of_week = 7 ;
+}
+
+message PbTrainingPreferences {
+	optional uint32 OBSOLETE_heart_rate_zone_lock = 1 ;
+	optional types.PbHeartRateView heart_rate_view = 2 ;
+}
+
+message PbActivityGoalPreferences {
+	required bool visible = 1 ;
+}
+
+message PbGeneralPreferences {
+	optional data.PbLocalizationPreferences localization_preferences = 1 ;
+	optional data.PbTrainingPreferences training_preferences = 2 ;
+	optional data.PbActivityGoalPreferences activity_goal_preferences = 3 ;
+	required types.PbSystemDateTime last_modified = 101 ;
+}

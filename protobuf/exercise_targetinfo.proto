@@ -1,0 +1,27 @@
+syntax = "proto2";
+package data;
+
+import "types.proto";
+import "exercise_phases.proto";
+import "training_session_target.proto";
+
+message PbSteadyRacePaceResult {
+	required types.PbDuration completed_time = 1 ;
+	optional uint32 average_heartrate = 2 ;
+	optional float average_speed = 3 ;
+}
+
+message PbExerciseTargetInfo {
+	required types.PbExerciseTargetType target_type = 1 ;
+	required uint32 index = 2 ;
+	optional types.PbOneLineText name = 3 ;
+	optional bool target_reached = 4 ;
+	optional types.PbDuration end_time = 5 ;
+	optional types.PbSportIdentifier sport_id = 6 ;
+	optional types.PbVolumeTarget volume_target = 7 ;
+	optional PbPhases phases = 8 ;
+	optional types.PbRouteId route = 9 ;
+	optional PbSteadyRacePace steady_race_pace = 10 ;
+	optional PbSteadyRacePaceResult steady_race_pace_result = 11 ;
+	optional types.PbStravaSegmentTarget strava_segment_target = 12 ;
+}

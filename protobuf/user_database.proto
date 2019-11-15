@@ -1,0 +1,6 @@
+syntax = "proto2";
+package data;
+
+message PbUserDb {
+	required uint32 current_user_index = 1 ;
+}

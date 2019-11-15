@@ -1,0 +1,21 @@
+syntax = "proto2";
+package data;
+
+import "types.proto";
+
+message PbSwimmingStyleChange {
+	required types.PbSwimmingStyle style = 1 ;
+	required types.PbDuration timestamp = 2 ;
+}
+
+message PbSwimmingPoolMetric {
+	required types.PbDuration start_offset = 1 ;
+	required types.PbDuration duration = 2 ;
+	optional types.PbSwimmingStyle style = 3 ;
+	optional uint32 strokes = 4 ;
+}
+
+message PbSwimmingSamples {
+	required types.PbLocalDateTime start = 1 ;
+	repeated data.PbSwimmingPoolMetric pool_metric = 3 ;
+}

@@ -1,0 +1,32 @@
+syntax = "proto2";
+package data;
+import "types.proto";
+
+message PbSessionHeartRateStatistics {
+	optional uint32 average = 1 ;
+	optional uint32 maximum = 2 ;
+}
+
+message PbTrainingSession {
+	required types.PbLocalDateTime start = 1 ;
+	optional types.PbLocalDateTime end = 20 ;
+	required uint32 exercise_count = 2 ;
+	optional string device_id = 3 ;
+	optional string model_name = 4 ;
+	optional types.PbDuration duration = 5 ;
+	optional float distance = 6 ;
+	optional uint32 calories = 7 ;
+	optional data.PbSessionHeartRateStatistics heart_rate = 8 ;
+	repeated types.PbDuration heart_rate_zone_duration = 9 ;
+	optional types.PbTrainingLoad training_load = 10 ;
+	optional types.PbOneLineText session_name = 11 ;
+	optional float feeling = 12 ;
+	optional types.PbMultiLineText note = 13 ;
+	optional types.PbOneLineText place = 14 ;
+	optional double latitude = 15 ;
+	optional double longitude = 16 ;
+	optional types.PbExerciseFeedback benefit = 17 ;
+	optional types.PbSportIdentifier sport = 18 ;
+	optional types.PbTrainingSessionTargetId training_session_target_id = 19 ;
+	optional types.PbTrainingSessionFavoriteId training_session_favorite_id = 21 ;
+}

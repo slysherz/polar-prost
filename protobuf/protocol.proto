@@ -1,0 +1,8 @@
+
+syntax = "proto2";
+package protocol;
+
+import public "pftp_error.proto";
+import public "pftp_notification.proto";
+import public "pftp_response.proto";
+import public "pftp_request.proto";

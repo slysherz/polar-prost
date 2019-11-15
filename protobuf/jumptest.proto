@@ -1,0 +1,22 @@
+syntax = "proto2";
+package data;
+
+import "types.proto";
+
+message PbJump {
+	required types.PbDuration flight_time = 1 ;
+	optional types.PbDuration contact_time = 2 ;
+}
+
+message PbJumpTest {
+	required PbJumpTest.PbJumpTestType test_type = 1 ;
+	required types.PbLocalDateTime start_time = 2 ;
+	repeated PbJump jump = 3 ;
+	optional types.PbDuration cont_jump_duration = 4 ;
+
+	enum PbJumpTestType {
+		JUMP_TEST_TYPE_SQUAT = 0;
+		JUMP_TEST_TYPE_COUNTER = 1;
+		JUMP_TEST_TYPE_CONTINUOUS = 2;
+	}
+}

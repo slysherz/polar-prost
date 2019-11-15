@@ -1,0 +1,36 @@
+syntax = "proto2";
+package data;
+
+import "types.proto";
+
+message PbRecordedHeartRateZone {
+	required types.PbHeartRateZone zone_limits = 1 ;
+	required types.PbDuration in_zone = 2 ;
+}
+
+message PbRecordedPowerZone {
+	required types.PbPowerZone zone_limits = 1 ;
+	required types.PbDuration in_zone = 2 ;
+}
+
+message PbRecordedFatFitZones {
+	required uint32 fatfit_limit = 1 ;
+	required types.PbDuration fat_time = 2 ;
+	required types.PbDuration fit_time = 3 ;
+}
+
+message PbRecordedSpeedZone {
+	required types.PbSpeedZone zone_limits = 1 ;
+	optional types.PbDuration time_in_zone = 2 ;
+	optional float distance_in_zone = 3 ;
+}
+
+message PbRecordedZones {
+	repeated data.PbRecordedHeartRateZone heart_rate_zone = 1 ;
+	repeated data.PbRecordedPowerZone power_zone = 2 ;
+	optional data.PbRecordedFatFitZones fatfit_zones = 3 ;
+	repeated data.PbRecordedSpeedZone speed_zone = 4 ;
+	optional types.PbHeartRateZoneSettingSource heart_rate_setting_source = 10 ;
+	optional types.PbPowerZoneSettingSource power_setting_source = 11 ;
+	optional types.PbSpeedZoneSettingSource speed_setting_source = 12 ;
+}

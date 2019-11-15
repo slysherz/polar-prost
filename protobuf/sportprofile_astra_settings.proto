@@ -1,0 +1,6 @@
+syntax = "proto2";
+package data;
+
+message PbAstraSportProfileSettings {
+	optional bool vibration = 3 ;
+}

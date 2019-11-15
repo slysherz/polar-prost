@@ -1,0 +1,13 @@
+syntax = "proto2";
+package data;
+import "types.proto";
+
+message PbRROffline {
+	required types.PbDuration start_time = 1 ;
+	required types.PbDuration time_interval = 2 ;
+}
+
+message PbExerciseRRIntervals {
+	repeated uint32 rr_intervals = 1  [packed=true];
+	repeated data.PbRROffline rr_sensor_offline = 2 ;
+}

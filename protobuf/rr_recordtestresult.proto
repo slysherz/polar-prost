@@ -1,0 +1,12 @@
+syntax = "proto2";
+package data;
+
+import "types.proto";
+
+message PbRRRecordingTestResult {
+	required types.PbLocalDateTime start_time = 1 ;
+	required types.PbLocalDateTime end_time = 2 ;
+	required uint32 hr_avg = 3 ;
+	required uint32 hr_min = 4 ;
+	required uint32 hr_max = 5 ;
+}

@@ -1,0 +1,32 @@
+syntax = "proto2";
+package data;
+
+import "types.proto";
+import "exercise_phases.proto";
+
+message PbSteadyRacePace {
+	required types.PbDuration duration = 1 ;
+	required float distance = 2 ;
+}
+
+message PbExerciseTarget {
+	required types.PbExerciseTargetType target_type = 1 ;
+	optional types.PbSportIdentifier sport_id = 2 ;
+	optional types.PbVolumeTarget volume_target = 3 ;
+	optional data.PbPhases phases = 4 ;
+	optional types.PbRouteId route = 5 ;
+	optional data.PbSteadyRacePace steady_race_pace = 6 ;
+	optional types.PbStravaSegmentTarget strava_segment_target = 7 ;
+}
+
+message PbTrainingSessionTarget {
+	required types.PbOneLineText name = 2 ;
+	optional types.PbSportIdentifier sport_id = 3 ;
+	optional types.PbLocalDateTime start_time = 4 ;
+	optional types.PbMultiLineText description = 5 ;
+	repeated data.PbExerciseTarget exercise_target = 6 ;
+	optional bool target_done = 7 ;
+	optional types.PbDuration duration = 8 ;
+	optional types.PbTrainingProgramId training_program_id = 9 ;
+	optional types.PbEventId event_id = 10 ;
+}

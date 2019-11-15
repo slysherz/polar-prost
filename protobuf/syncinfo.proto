@@ -1,0 +1,10 @@
+syntax = "proto2";
+package data;
+import "types.proto";
+
+message PbSyncInfo {
+	required types.PbSystemDateTime last_modified = 1 ;
+	repeated string changed_path = 2 ;
+	optional types.PbSystemDateTime last_synchronized = 3 ;
+	optional bool full_sync_required = 4 [default = true];
+}

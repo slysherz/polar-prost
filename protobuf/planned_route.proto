@@ -1,0 +1,26 @@
+syntax = "proto2";
+package data;
+import "types.proto";
+
+message PbStravaSegmentPort {
+	required types.PbLocation left_location = 1 ;
+	required types.PbLocation right_location = 2 ;
+}
+
+message PbRoutePoint {
+	required sint32 x_offset = 1 ;
+	required sint32 y_offset = 2 ;
+	optional uint32 time_offset = 3 ;
+	optional sint32 z_offset = 4 ;
+}
+
+message PbPlannedRoute {
+	required types.PbRouteId route_id = 1 ;
+	required types.PbOneLineText name = 2 ;
+	optional float length = 3 ;
+	optional types.PbLocation start_location = 4 ;
+	optional float start_altitude = 5 ;
+	repeated data.PbRoutePoint point = 6 ;
+	optional data.PbStravaSegmentPort segment_start_port = 7 ;
+	optional data.PbStravaSegmentPort segment_end_port = 8 ;
+}

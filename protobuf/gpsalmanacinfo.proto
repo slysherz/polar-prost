@@ -1,0 +1,8 @@
+syntax = "proto2";
+package data;
+
+import "types.proto";
+
+message PbGPSAlmanacInfo {
+	required types.PbSystemDateTime end_time = 1 ;
+}

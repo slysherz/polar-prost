@@ -1,0 +1,21 @@
+[package]
+name = "polar-prost"
+version = "0.1.0"
+authors = ["Diogo Ribeiro <slysherz@gmail.com>"]
+edition = "2018"
+build = "build.rs"
+license = "MIT"
+description = "Protobuf bindings to interact with Polar watches"
+keywords = ["polar", "protobuf", "prost"]
+repository = "https://github.com/slysherz/polar-prost"
+
+[features]
+default = []
+rebuild-proto = ["prost-build"]
+
+[dependencies]
+prost = "0.5.0"
+bytes = "0.4.12"
+
+[build-dependencies]
+prost-build = { version = "0.5.0", optional = true }
